@@ -1,0 +1,23 @@
+{
+  "colonnes": [
+    "Grossesses",
+    "Glucose",
+    "Pression",
+    "Epaisseur_Peau",
+    "Insuline",
+    "IMC",
+    "Heredite",
+    "Age"
+  ],
+  "medianes": {
+    "Grossesses": 3.0,
+    "Glucose": 117.0,
+    "Pression": 72.0,
+    "Epaisseur_Peau": 29.0,
+    "Insuline": 125.0,
+    "IMC": 32.4,
+    "Heredite": 0.3825,
+    "Age": 29.0
+  },
+  "seuil": 0.45
+}
