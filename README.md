@@ -1,16 +1,16 @@
-# 🩺 Prédiction du diabète — Pima Indians Diabetes
+# Prédiction du diabète : Pima Indians Diabetes
 
 Projet de data science de bout en bout : analyse exploratoire, nettoyage de valeurs manquantes déguisées, comparaison de modèles de machine learning, choix d'un seuil de décision orienté santé, et déploiement du modèle via une API **FastAPI**.
 
-**Auteur :** KONATE ZANA Oumar — M1 Data & Intelligence Artificielle, Université Polytechnique de Bingerville (Abidjan, Côte d'Ivoire)
+**Auteur :** KONATE ZANA Oumar, M1 Data & Intelligence Artificielle, Université Polytechnique de Bingerville (Abidjan, Côte d'Ivoire)
 
 ---
 
-## 🎯 Objectif
+## Objectif
 
 Prédire si une patiente est diabétique à partir de 8 mesures cliniques faciles à obtenir en centre de santé (glucose, IMC, âge, tension, etc.). Le diabète progresse en Afrique de l'Ouest et un dépistage précoce est un enjeu de santé publique : l'objectif est de **ne pas manquer les patientes malades** (priorité au *Recall*).
 
-## 📊 Données
+## Données
 
 - **Source :** [Pima Indians Diabetes Database](https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv) (UCI / NIDDK)
 - **768 patientes**, 8 variables + la cible (diabétique ou non) ; **34,9 % de diabétiques**
@@ -30,7 +30,7 @@ Cinq colonnes contiennent des **0 biologiquement impossibles** (pression de 0, I
 
 **Traitement :** remplacés par des valeurs manquantes (`NaN`), puis comblés par la **médiane** *à l'intérieur d'un `Pipeline` scikit-learn*, après la séparation entraînement/test, pour éviter toute **fuite de données** (*data leakage*).
 
-## 🔍 Analyse exploratoire
+## Analyse exploratoire
 
 | | |
 |---|---|
@@ -42,7 +42,7 @@ Cinq colonnes contiennent des **0 biologiquement impossibles** (pression de 0, I
 
 Graphiques détaillés : [`images/`](images/)
 
-## 🤖 Modèles et résultats
+## Modèles et résultats
 
 Séparation 80 % / 20 % stratifiée (154 patientes de test), validation croisée à 5 plis sur l'entraînement.
 
@@ -78,7 +78,7 @@ Par défaut, un modèle classe « diabétique » dès que la probabilité dépas
 
 **Variables les plus importantes :** Glucose, puis Âge, IMC et Insuline.
 
-## 🚀 API FastAPI
+## API FastAPI
 
 L'API charge le modèle XGBoost sauvegardé dans son **format natif JSON** (`modele_xgboost.json`, portable d'une machine à l'autre, contrairement à un fichier pickle) ainsi que ses paramètres (`parametres_modele.json` : ordre des colonnes, médianes d'imputation, seuil de décision). Elle expose :
 
@@ -132,18 +132,18 @@ curl -X POST http://127.0.0.1:8000/predict \
 pytest -v
 ```
 
-## ⚠️ Limites
+## Limites
 
 1. **Petit échantillon de test** : 154 patientes dont 54 diabétiques, donc une incertitude d'environ ±10 points sur le Recall.
 2. **Population non représentative** : femmes d'origine Pima (Arizona), 21 ans et plus. Le modèle n'est pas validé pour la population ivoirienne ni pour les hommes. Une utilisation réelle exigerait un réentraînement sur des données locales.
 3. **Biais d'IMC** : 61 % des patientes sont en situation d'obésité, donc peu d'exemples à IMC normal.
 4. **Outil de dépistage, pas de diagnostic** : seul un examen médical confirme un diabète.
 
-## 🛠️ Technologies
+## Technologies
 
-Python · pandas · NumPy · matplotlib · seaborn · scikit-learn · XGBoost · FastAPI · Uvicorn · Pydantic · Google Colab · Git/GitHub
+Python, pandas, NumPy, matplotlib, seaborn, scikit-learn, XGBoost, FastAPI, Uvicorn, Pydantic, Google Colab, Git/GitHub
 
-## 📁 Structure
+## Structure
 
 ```
 diabetes-prediction/
@@ -158,7 +158,7 @@ diabetes-prediction/
 └── images/                   # Graphiques de l'analyse
 ```
 
-## 👤 Contact
+## Contact
 
 - GitHub : [oumar-ds](https://github.com/oumar-ds)
 - Portfolio : [oumar-ds.github.io](https://oumar-ds.github.io)
